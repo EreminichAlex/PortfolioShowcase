@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="../bootstrap-5.3.2-dist/css/bootstrap-utilities.min.css">
     <link rel="stylesheet" href="../bootstrap-5.3.2-dist/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="../bootstrap-5.3.2-dist/css/bootstrap.min.css">
-    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
     <script src="../bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
     <script src="../bootstrap-5.3.2-dist/js/bootstrap.esm.min.js"></script>
@@ -24,16 +27,77 @@
                 </div>
                 <nav class="header_nav col-8">
                     <ul>
-                        <li><a href="#">контакты</a></li>
-                        <li><a href="#">связаться</a></li>
+                        <li><a href="#footer">контакты</a></li>
+                        <li><a href="#contact-with-us">связаться</a></li>
                         <li><a href="#">войти/зарегистрироваться</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
+
     <main>
-        
+        <div class="subheader-starting">
+            <div class="container">
+                <div class="row">
+                    <div class="subheader-starting_row">
+                        <div class="subheader-starting_row_text">
+                            <h1>Создайте свое 
+                                портфолио</h1>
+                            <div class="subheader-starting_row_text_subtitle">
+                                Поделитесь 
+                                своими достижениями с миром! Сайт предоставляет 
+                                возможность продвигать себя и свои работы, а также 
+                                находить возможности для развития. Начните сейчас!
+                            </div>
+                            <a href="#" class="subheader-starting_row_text_btn">Начать</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+
+        <div id="contact-with-us" class="contact-with-us">
+            <div class="container">
+                <div class="contact-with-us_container">
+                    <h2>Связаться с нами</h2>
+                    <div class="contact-with-us_container_form">
+                        <form action="#" name="contact">
+                            <div class="name-row">
+                                <div class="row">
+                                    <div class="name-row_firstname col">
+                                        <h3>имя</h3>
+                                        <input type="text" maxlength="20">
+                                    </div>
+                                    <div class="name-row_lastname col">
+                                        <h3>фамилия</h3>
+                                        <input type="text" maxlength="20">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="textarea-row">
+                                <h3>ваша эл. почта</h3>
+                                <input type="email" required>
+                                <h3>комментарий</h3>
+                                <textarea name="comment" id="contact-comment" required></textarea>
+                            </div>
+                            <input type="submit" value="отправить" class="col-12 col-md-8 col-xl-3">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-row">
+                    <h2>portfolio showcase</h2>
+                    <a href="mailto:myportfolione@gmail.com">myportfolione@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
