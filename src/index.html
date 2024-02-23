@@ -3,101 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap-5.3.2-dist/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="./bootstrap-5.3.2-dist/css/bootstrap-utilities.min.css">
+    <link rel="stylesheet" href="./bootstrap-5.3.2-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="./bootstrap-5.3.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="../bootstrap-5.3.2-dist/css/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="../bootstrap-5.3.2-dist/css/bootstrap-utilities.min.css">
-    <link rel="stylesheet" href="../bootstrap-5.3.2-dist/css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="../bootstrap-5.3.2-dist/css/bootstrap.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
-    <script src="../bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
-    <script src="../bootstrap-5.3.2-dist/js/bootstrap.esm.min.js"></script>
-    <script src="../bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
+    <script src="./bootstrap-5.3.2-dist/js/bootstrap.esm.min.js"></script>
+    <script src="./bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
     <title>Portfolio showcase</title>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="header_logo col-4">
-                    <a href="#"><img src="./icons/logo.png" alt="Logo"></a>
-                </div>
-                <nav class="header_nav col-8">
-                    <ul>
-                        <li><a href="#footer">контакты</a></li>
-                        <li><a href="#contact-with-us">связаться</a></li>
-                        <li><a href="#">войти/зарегистрироваться</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+    <div class="wrapper">
 
-    <main>
-        <div class="subheader-starting">
+        <header>
             <div class="container">
-                <div class="row">
-                    <div class="subheader-starting_row">
-                        <div class="subheader-starting_row_text">
-                            <h1>Создайте свое 
-                                портфолио</h1>
-                            <div class="subheader-starting_row_text_subtitle">
-                                Поделитесь 
-                                своими достижениями с миром! Сайт предоставляет 
-                                возможность продвигать себя и свои работы, а также 
-                                находить возможности для развития. Начните сейчас!
+                <div class="row align-items-center">
+                    <div class="header_logo col-4">
+                        <a href="#"><img src="./icons/logo.png" alt="Logo"></a>
+                    </div>
+                    <nav class="header_nav col-8">
+                        <ul class="header_nav_list">
+                            <li class="header_nav_list_item"><a href="#footer">контакты</a></li>
+                            <li class="header_nav_list_item"><a href="#contact-with-us">связаться</a></li>
+                            <li class="header_nav_list_item" hidden ><a href="./pages/registration.html">войти/зарегистрироваться</a></li>
+                            <div class="dropdown">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Аккаунт 
+                                </a>
+                              
+                                <ol class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="#">Профиль</a></li>
+                                  <li><a class="dropdown-item" href="./pages/portfolio.html">Портфолио</a></li>
+                                  <li><a class="dropdown-item" href="#">Выйти</a></li>
+                                </ol>
+                              </div>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="subheader-starting">
+                <div class="container">
+                    <div class="row">
+                        <div class="subheader-starting_row">
+                            <div class="subheader-starting_row_text">
+                                <h1>Создайте свое 
+                                    портфолио</h1>
+                                <div class="subheader-starting_row_text_subtitle">
+                                    Поделитесь 
+                                    своими достижениями с миром! Сайт предоставляет 
+                                    возможность продвигать себя и свои работы, а также 
+                                    находить возможности для развития. Начните сейчас!
+                                </div>
+                                <a href="#" class="subheader-starting_row_text_btn">Начать</a>
                             </div>
-                            <a href="#" class="subheader-starting_row_text_btn">Начать</a>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+
+            <div id="contact-with-us" class="contact-with-us">
+                <div class="container">
+                    <div class="contact-with-us_container">
+                        <h2>Связаться с нами</h2>
+                        <div class="contact-with-us_container_form">
+                            <form action="#" name="contact">
+                                <div class="name-row">
+                                    <div class="row">
+                                        <div class="name-row_firstname col">
+                                            <h3>имя</h3>
+                                            <input type="text" maxlength="20">
+                                        </div>
+                                        <div class="name-row_lastname col">
+                                            <h3>фамилия</h3>
+                                            <input type="text" maxlength="20">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="textarea-row">
+                                    <h3>ваша эл. почта</h3>
+                                    <input type="email" required>
+                                    <h3>комментарий</h3>
+                                    <textarea name="comment" id="contact-comment" required></textarea>
+                                </div>
+                                <input type="submit" value="отправить" class="col-12 col-md-8 col-xl-3">
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>    
+        </main>
+    </div>
 
-        <div id="contact-with-us" class="contact-with-us">
+        <footer id="footer">
             <div class="container">
-                <div class="contact-with-us_container">
-                    <h2>Связаться с нами</h2>
-                    <div class="contact-with-us_container_form">
-                        <form action="#" name="contact">
-                            <div class="name-row">
-                                <div class="row">
-                                    <div class="name-row_firstname col">
-                                        <h3>имя</h3>
-                                        <input type="text" maxlength="20">
-                                    </div>
-                                    <div class="name-row_lastname col">
-                                        <h3>фамилия</h3>
-                                        <input type="text" maxlength="20">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="textarea-row">
-                                <h3>ваша эл. почта</h3>
-                                <input type="email" required>
-                                <h3>комментарий</h3>
-                                <textarea name="comment" id="contact-comment" required></textarea>
-                            </div>
-                            <input type="submit" value="отправить" class="col-12 col-md-8 col-xl-3">
-                        </form>
+                <div class="row">
+                    <div class="footer-row">
+                        <h2>portfolio showcase</h2>
+                        <a href="mailto:myportfolione@gmail.com">myportfolione@gmail.com</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
-
-    <footer id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-row">
-                    <h2>portfolio showcase</h2>
-                    <a href="mailto:myportfolione@gmail.com">myportfolione@gmail.com</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </footer>
 </body>
 </html>
