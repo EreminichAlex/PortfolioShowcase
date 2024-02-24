@@ -297,11 +297,28 @@ footer{
     padding-bottom: 170px;
 
     .portfolio-container {
-        background-color: #cccccc;
         height: 100%;
+        position: relative;
+
+        .bck-change {
+            position: absolute;
+            cursor: pointer;
+            right: 6px;
+            top: 10px;
+        }
+        
+        .container {
+            padding: 0;
+            background-color: #cccccc;
+
+        }
 
         &_info {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 20px;
 
+            box-shadow: $main-shadow;
 
             &_image {
                 max-width: 170px;
@@ -323,7 +340,7 @@ footer{
                         text-align: center;
 
                         &::after {
-                            content: url(../img/icons/arrow-right.svg);
+                            content: url(../icons/portfolio/arrow-right.svg);
                             position: absolute;
                             right: 0;
                             top: 50%;
@@ -334,10 +351,56 @@ footer{
                         background-color: $text-color-base;
                         border-radius: 0 0 10px 10px;
                         box-shadow: $main-shadow;
+
                         ul {
+                            padding-left: 0;
                             list-style-type: none;
                         }
+
+                        &_contact {
+                            padding: 4px 10px 3px 10px;
+
+                            h3, p {
+                                margin: 0;
+                            }
+
+                            .contact-name {
+                                font-size: 24px;
+                                font-weight: 900;
+                            }
+
+                            .contact-link {
+                                font-weight: 400;
+                            }
+                        }
                     }
+                }
+            }
+
+            &_text-content {
+                display: flex;
+                flex-direction: column;
+                &_username {
+                    font-size: 58px;
+                    font-weight: 900;
+                    margin: 0;
+                    align-self: flex-end;
+                }
+
+                &_name {
+                    margin: 0;
+                    font-size: 40px;
+                    align-self: flex-end;
+                    margin-top: 10px;
+                }
+
+                &_descr{ 
+                    max-width: 100%;
+                    border: 1px solid #000;
+                    padding: 10px;
+                    margin-top: 20px;
+                    font-size: 22px;
+                    background-color: #fff;
                 }
             }
         }
