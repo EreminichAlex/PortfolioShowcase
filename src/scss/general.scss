@@ -12,6 +12,33 @@ header {
         min-height: 100%;
         .row {
             min-height: 100px;
+
+            .header_hamburger-nav {
+                &_list {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+
+                    padding: 0;
+                    padding-top: 20px;
+                    text-align: center;
+                    list-style-type: none;
+                    font-size: 50px;
+                    background-color: $main-background;
+
+                    li {
+                        margin-top: 40px;
+                    }
+
+                    a {
+                        padding: 40px 60px;
+                        color: $text-color-base;
+                        text-decoration: none;
+                    }
+                }
+            }
         }
     }
     background-color: $main-background;
@@ -307,18 +334,17 @@ footer{
             top: 10px;
         }
         
-        .container {
+        &>.container {
             padding: 0;
             background-color: #cccccc;
+            box-shadow: $main-shadow;
 
         }
 
         &_info {
             display: flex;
             justify-content: space-around;
-            padding: 20px 20px;
-
-            box-shadow: $main-shadow;
+            padding: 20px 20px 40px 20px;
 
             &_image {
                 max-width: 170px;
@@ -401,7 +427,69 @@ footer{
                     margin-top: 20px;
                     font-size: 22px;
                     background-color: #fff;
+
+                    p {
+                        margin: 0;
+                    }
                 }
+            }
+        }
+
+        .sections {
+            .section {
+                padding: 30px 30px;
+                &_title {
+                    position: relative;
+                    font-weight: 900;
+                    font-size: 38px;
+                    &::after {
+                        content: url(../icons/portfolio/text-edit-icon.png);
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+
+                &_block {
+                    display: grid;
+                    grid-template-columns: repeat(5, 1fr);
+                    grid-auto-rows: 250px;
+                    gap: 20px;
+                    min-height: 200px;
+                    border: 1px solid #000;
+                    width: 100%;
+
+                    &_work {
+                        justify-self: center;
+                        align-self: center;
+                        &_add-work {
+                            padding: 20px;
+                            cursor: pointer;
+
+                            img {
+                                display: block;
+                            }
+                            @include addIconHover;
+                        }
+                    }
+                }
+            }
+        }
+        .add-section {
+            position: relative;
+            min-height: 220px;
+            padding: 20px 20px;
+            cursor: pointer;
+            text-align: center;
+            margin: 0 auto;
+            @include addIconHover;
+            
+            img {
+                position: absolute;
+                display: block;
+
+                left: 50%;
+                transform: translateX(-50%);
             }
         }
     }

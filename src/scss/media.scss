@@ -1,0 +1,99 @@
+@media (max-width: 1200px) {
+    header {
+        .header_nav {
+            &_list {
+                li {
+                    a {
+                        font-size: 40px;
+                    }
+                }
+
+                .dropdown {
+                    a {
+                        font-size: 38px;
+
+                    }
+
+                    ol {
+                        padding: 10px 15px;
+                    }
+                }
+            }
+        }
+    }
+
+    .subheader-starting {
+        &_row {
+            &_text {
+                max-width: 100%;
+                h1 {
+                    font-size: 110px;
+                }
+
+                &_subtitle {
+                    font-size: 40px;
+                    letter-spacing: 0.8px;
+                }
+
+                &_btn {
+                    font-size: 70px;
+                    border-radius: 50px;
+                    width: 320px;
+                }
+            }
+        }
+    }
+
+    .contact-with-us {
+        &_container {
+            padding: 20px 20px;
+            h2 {
+                font-size: 64px;
+            }
+
+            &_form {
+                form {
+                    input {
+                        padding: 15px 20px;
+                        margin-top: 20px;
+                    }
+                    .name-row {
+                        .row {
+                            h3 {
+                                font-size: 48px;
+                            }
+                        }
+                    }
+
+                    .textarea-row {
+                        h3 {
+                            font-size: 48px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    header {
+        .row {
+            .header_nav {
+                display: none;
+            }
+        }
+    }
+
+    .subheader-starting {
+        &_row {
+            &_text {
+                padding-top: 30px;
+                padding-bottom: 100px;
+                &_subtitle {
+                    font-size: 44px;
+                }
+            }
+        }
+    }
+}
