@@ -5,3 +5,14 @@
         background-color: #b8b8b8;
     }
 }
+
+@mixin h2Template {
+    font-weight: 900;
+    font-size: 52px;
+    text-align: center;
+    margin: 0;
+}
+
+@mixin h2TemplateSM {
+    font-size: 42px;
+}
