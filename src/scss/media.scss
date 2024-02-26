@@ -26,6 +26,7 @@
         &_row {
             &_text {
                 max-width: 100%;
+                padding: 100px 0;
                 h1 {
                     font-size: 110px;
                 }
@@ -88,10 +89,214 @@
     .subheader-starting {
         &_row {
             &_text {
-                padding-top: 30px;
-                padding-bottom: 100px;
+                padding: 40px 0 60px 0;
                 &_subtitle {
                     font-size: 44px;
+                }
+            }
+        }
+    }
+
+    .contact-with-us { 
+        &_container {
+            &_form {
+                form {
+                    .name-row {
+                        .row {
+                            .name-row_firstname {
+                                padding-right: 0;
+                            }
+                            .name-row_lastname {
+                                padding-left: 0;
+                                margin-top: 20px;
+                            }
+                            input {
+                                max-width: none;
+                                padding: 20px 25px;
+                            }
+                        }
+                    }
+                    
+                    .textarea-row {
+                        margin-top: 20px;
+                    }
+
+                    input[type="submit"] {
+                        padding: 25px 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        height: 240px;
+        .row {
+            .footer-row {
+                flex-direction: column;
+
+                h2, a {
+                    padding: 20px 5px;
+                    font-size: 38px;
+                }
+
+                h2 {
+                    margin: 0;
+                }
+
+                a {
+                    &:before {
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+        }
+    }      
+}
+
+@media (max-width: 768px) {
+    .subheader-starting {
+        &_row {
+            padding: 0;
+            &_text {
+                width: 100%;
+                h1 {
+                    font-size: 90px;
+                    text-align: center;
+                }
+
+                &_btn {
+                    margin: 25px auto 0 auto;
+                }
+            }
+        }
+    }
+
+    .features {
+        &_container {
+            .row {
+                .card {
+                    .card-body {
+                        h4 {
+                            font-size: 42px;
+                        }
+    
+                        p {
+                            font-size: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .contact-with-us{ 
+        &_container {
+            padding: 20px 0;            
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    header {
+        .row {
+            .header_logo {
+                a {
+                    img {
+                        transform: scale(0.6);
+                    }
+                }
+            }
+        }
+    }
+
+    .subheader-starting {
+        &_row {
+            padding: 0;
+            &_text {
+                padding: 20px;
+                width: 100%;
+                h1 {
+                    font-size: 3rem;
+                    text-align: center;
+                }
+
+                &_subtitle {
+                    font-size: 30px;
+                    text-align: justify;
+                }
+
+                &_btn {
+                    width: 260px;
+                    font-size: 60px;
+                }
+            }
+        }
+    }
+
+    .features {
+        &_container {
+            h2 {
+                @include h2TemplateSM
+            }
+        }
+    }
+
+    .contact-with-us {
+        &_container {
+            h2 {
+                @include h2TemplateSM
+            }
+            &_form {
+                form {
+                    .name-row {
+                        .row {
+                            .name-row_firstname {
+                                h3 {
+                                    font-size: 40px;
+                                }
+                            }
+
+                            .name-row_lastname {
+                                h3 {
+                                    font-size: 40px;
+                                }
+                            }
+                        }
+                    }
+
+                    .textarea-row {
+                        h3 {
+                            font-size: 40px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        .container {
+            .row {
+                .footer-row {
+                    a {
+                        font-size: 28px;
+                    }
+                }
+            }
+        }
+    }
+
+    .log-reg {
+        .login-form-container, .registration-form-container {
+            h1 {
+                font-size: 38px;
+            }
+
+            .login-form {
+                input[type="submit"] {
+                    font-size: 16px;
                 }
             }
         }
