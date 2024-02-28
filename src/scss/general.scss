@@ -399,19 +399,24 @@ footer{
                         border-bottom: 3px solid $main-background;
                         padding: 3px 10px 3px 0;
                         text-align: center;
+                        translate: all 0.2s ease-in;
 
-                        &::after {
-                            content: url(../icons/portfolio/arrow-right.svg);
+                        img {
                             position: absolute;
-                            right: 0;
                             top: 50%;
-                            transform: translateY(-50%);
+                            right: 3px;
+                            transform: translateY(-50%) rotate(0deg) scale(0.6);
                         }
                     }
                     &_collapse-block {
+                        
+
                         background-color: $text-color-base;
                         border-radius: 0 0 10px 10px;
                         box-shadow: $main-shadow;
+
+                        translate: all 0.2s ease-in;
+
 
                         ul {
                             padding-left: 0;
