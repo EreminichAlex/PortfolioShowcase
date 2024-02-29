@@ -1,35 +1,57 @@
-const ContactsCollapseBtn = document.querySelector('.portfolio-container_info_image_contacts_collapse-btn');
-const ContactsCollapseBlock = document.querySelector('.portfolio-container_info_image_contacts_collapse-block');
-const UsernameText = document.querySelector('.portfolio-container_info_text-content_username');
 const NameText = document.querySelector('.portfolio-container_info_text-content_name');
-
-function collapseContacts() {
-    ContactsCollapseBlock.hidden = !ContactsCollapseBlock.hidden;
-
-    let transformClose = "translateY(-50%) rotate(90deg) scale(0.6)";
-    let transformOpen = "translateY(-50%) rotate(0deg) scale(0.6)";
-    ContactsCollapseBtn.firstElementChild.style.transform = (ContactsCollapseBlock.hidden) ? transformOpen : transformClose;
-}
+const PortfolioDescrText = document.querySelector('.portfolio-container_info_text-content_descr').firstElementChild;
+const PortfolioDescrBtn = PortfolioDescrText.nextElementSibling;
 
 function changeNamesFocus() {
     let input = document.createElement("input");
-    let usernameValue = UsernameText.textContent;
+    let nameValue = NameText.textContent;
     input.type = "text";
     input.className = "changing-text";
-    input.setAttribute("maxlength", "20")
+    input.setAttribute("maxlength", "30");
 
-    UsernameText.replaceWith(input);
-    input.value = usernameValue;
+    NameText.replaceWith(input);
+    input.value = nameValue;
 
+    function changeNamesBlur() {
+        let input = document.querySelector('.changing-text');
+        if (!input) return;
+        let inputValue = (input.value === '') ? "X" : input.value;
+
+        input.replaceWith(NameText);
+        NameText.textContent = inputValue;
+    }
+
+    function changeNamesEnter(e) {
+        if (e.code == "Enter") input.blur();
+    }
+
+    input.addEventListener("blur", changeNamesBlur)
+    document.addEventListener("keydown", (e) => changeNamesEnter(e))
+    input.focus();
 }
 
-function changeNamesBlur() {
-    
+function descrChangeFocus() {
+    let textarea = document.createElement("textarea");
+    PortfolioDescrText.replaceWith(textarea);
+    textarea.value = PortfolioDescrText.textContent;
+    textarea.className = "changing-descr";
+
+    function descrChangeBlur() {
+        let textarea = document.querySelector('.changing-descr');
+        let textareaValue = textarea.value;
+        textarea.replaceWith(PortfolioDescrText);
+        PortfolioDescrText.textContent = textareaValue;
+        
+        PortfolioDescrBtn.hidden = false;
+    }
+
+    textarea.addEventListener("blur", descrChangeBlur);
+    PortfolioDescrBtn.hidden = true;
+    textarea.focus();
 }
 
-
-
-ContactsCollapseBtn.addEventListener("click", collapseContacts);
+PortfolioDescrBtn.addEventListener("click", descrChangeFocus);
+NameText.addEventListener("click", changeNamesFocus);
 
 
 
