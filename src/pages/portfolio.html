@@ -21,6 +21,32 @@
     </head>
 <body>
     <div class="wrapper">
+
+        <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content bg-dark-subtle">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-3" id="exampleModalLabel">Добавить контакт</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <input type="text" id="newContactName" class="form-control" placeholder="Twitter">
+                        <label for="newContactName">Название</label>
+                    </div>
+                    <div class="form-floating mt-3">
+                        <input type="text" id="newContactAddress" class="form-control" placeholder="address">
+                        <label for="newContactAddress">Адрес</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                  <button type="button" id="acceptContact" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactModal">Принять</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
         <header>
             <div class="container">
                 <div class="row align-items-center">
@@ -51,6 +77,7 @@
             <div class="portfolio-container">
                 <img src="../icons/portfolio/background-change-icon.png" class="bck-change" alt="сменить фон">
                 <div class="container">
+                    <img src="../icons/portfolio/color-picker-icon.svg" class="bck-change-color" alt="сменить цвет фона">
                     <div class="portfolio-container_info">
                         <div class="portfolio-container_info_image col-3">
                             <div class="portfolio-container_info_image_img"><img src="../icons/portfolio/user-icon.png" alt="фото профиля"></div>
@@ -58,14 +85,19 @@
                                 <div class="portfolio-container_info_image_contacts_collapse-btn">Контакты <img src="../icons/portfolio/arrow-right.svg" alt=""> </div>
                                 <div class="portfolio-container_info_image_contacts_collapse-block" hidden>
                                     <ul>
-                                        <li><div class="portfolio-container_info_image_contacts_collapse-block_contact">
+                                        
+                                        <li>
+                                            <div class="portfolio-container_info_image_contacts_collapse-block_add-contact" title="добавить контакт" data-bs-toggle="modal" data-bs-target="#contactModal">
+                                                <img src="../icons/portfolio/add-contact-icon.png" alt="add contact">
+                                            </div>
+                                        </li>
+
+                                        <!-- BLOCK CONTACT TEMPLATE -->
+                                        <!-- <li><div class="portfolio-container_info_image_contacts_collapse-block_contact">
                                             <h3 class="contact-name">контакт</h3>
                                             <p class="contact-link">Ссылка</p>
-                                        </div></li>
-                                        <li><div class="portfolio-container_info_image_contacts_collapse-block_contact">
-                                            <h3 class="contact-name">контакт</h3>
-                                            <p class="contact-link">Ссылка</p>
-                                        </div></li>
+                                        </div></li> -->
+
                                     </ul>
                                 </div>
                             </div>
@@ -73,7 +105,7 @@
                         <div class="portfolio-container_info_text-content col-9">
                             <h2 class="portfolio-container_info_text-content_username">Username</h2>
                             <h3 class="portfolio-container_info_text-content_name">Имя Фамилия</h3>
-                            <div class="portfolio-container_info_text-content_descr"><p>Ваше описание</p></div>
+                            <div class="portfolio-container_info_text-content_descr"><p>Ваше описание</p><img src="../icons/portfolio/descr-edit-icon.png" alt="сменить описание"></div>
                         </div>
                     </div>
 
@@ -124,6 +156,6 @@
         </div>
     </footer>
 
-    <script src="../js/portfolio.js"></script>
+    <script src="../js-testing/main.js"></script>
 </body>
 </html>
