@@ -22,6 +22,18 @@
         }
     }
 
+    .portfolio {
+        .portfolio-container {
+            .sections {
+                .section {
+                    &_block {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+                }
+            }
+        }
+    }
+
     .subheader-starting {
         &_row {
             &_text {
@@ -196,7 +208,20 @@
             padding: 20px 0;            
         }
     }
+
+    .portfolio {
+        .portfolio-container {
+            .sections {
+                .section {
+                    &_block {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+            }
+        }
+    }
 }
+
 
 @media (max-width: 576px) {
     header {
@@ -297,6 +322,18 @@
             .login-form {
                 input[type="submit"] {
                     font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .portfolio {
+        .portfolio-container {
+            .sections {
+                .section {
+                    &_block {
+                        grid-template-columns: repeat(1, 1fr);
+                    }
                 }
             }
         }
