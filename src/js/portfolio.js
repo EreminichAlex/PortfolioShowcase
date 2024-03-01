@@ -1,6 +1,19 @@
 const NameText = document.querySelector('.portfolio-container_info_text-content_name');
 const PortfolioDescrText = document.querySelector('.portfolio-container_info_text-content_descr').firstElementChild;
 const PortfolioDescrBtn = PortfolioDescrText.nextElementSibling;
+const ChangeBackgroundColorBtn = document.querySelector(".bck-change-color");
+const ColorInput = document.getElementById("colorInputBackground");
+
+function rgbToHex(rgb) {
+    const nums = rgb.match(/\b\d{1,3}\b/g);
+    
+    const hex = nums.map(num => {
+        const hexNum = Number(num).toString(16);
+        return hexNum.length === 1 ? "0" + hexNum : hexNum;
+    }).join('');
+    return '#' + hex;
+}
+
 
 function changeNamesFocus() {
     let input = document.createElement("input");
@@ -49,7 +62,23 @@ function descrChangeFocus() {
     PortfolioDescrBtn.hidden = true;
     textarea.focus();
 }
+console.log(ColorInput.closest(".container").style.backgroundColor)
 
+function changeBackgroundColor() {
+    ColorInput.hidden = false;
+    document.body.style.overflowY = "hidden";
+    let currentBackgroundRGB = getComputedStyle(ColorInput.closest(".container")).getPropertyValue("background-color");
+    ColorInput.value = rgbToHex(currentBackgroundRGB);
+
+    ColorInput.focus();
+    ColorInput.addEventListener('blur', () => {
+        ColorInput.closest(".container").style.backgroundColor = ColorInput.value;
+        ColorInput.hidden = true;
+        document.body.style.overflowY = "visible";
+    })
+}
+
+ChangeBackgroundColorBtn.addEventListener("click", changeBackgroundColor)
 PortfolioDescrBtn.addEventListener("click", descrChangeFocus);
 NameText.addEventListener("click", changeNamesFocus);
 
