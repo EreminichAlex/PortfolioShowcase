@@ -12,19 +12,38 @@ function collapseContacts() {
     ContactsCollapseBtn.firstElementChild.style.transform = (ContactsCollapseBlock.hidden) ? transformOpen : transformClose;
 }
 
+const isValidUrl = (str) => {
+    try {
+      return !!new URL(str);
+    }
+    catch (_) {
+      return false;
+    }
+  };
+
+  function deleteParentElement(e) {
+    e.target.parentElement.remove();
+  }
+
 function addNewContact() {
     let name = document.getElementById('newContactName').value;
     let url = document.getElementById('newContactAddress').value;
     
     if (!name || !url) return;
+    if (!isValidUrl(url)) {
+        alert("Неверный адрес")
+        return;
+    }; 
     let contact = document.createElement('li');
     
     let contactTemplate = `<div class="portfolio-container_info_image_contacts_collapse-block_contact">
-    <h3 class="contact-name">${name}</h3>
-    <p class="contact-link">${url}</p>
+    <a class="contact-name" href="${url}" target="_blank">${name}</a>
+    <img src="../icons/portfolio/delete-contact-icon.svg" class="delete-contact">
     </div>`
     contact.innerHTML = contactTemplate;
     AddContactBtn.parentElement.before(contact);
+
+    contact.querySelector(".delete-contact").addEventListener("click", (e) => {deleteParentElement(e)})
 }
 Modal.addEventListener('shown.bs.modal', () => {
     const AcceptContactBtn = document.getElementById('acceptContact');
