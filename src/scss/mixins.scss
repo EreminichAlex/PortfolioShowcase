@@ -16,3 +16,12 @@
 @mixin h2TemplateSM {
     font-size: 42px;
 }
+
+@mixin deleteBtnHover {
+    transition: all 0.2s ease;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: #e07882;
+    }
+}
