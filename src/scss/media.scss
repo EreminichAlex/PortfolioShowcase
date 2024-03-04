@@ -165,6 +165,16 @@
             }
         }
     }      
+
+    .portfolio {
+        .portfolio-container {
+            &_info {
+                &_text-content {
+                    padding-left: 30px;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 768px) {
@@ -218,8 +228,33 @@
                     }
                 }
             }
+
+            &_info {
+                flex-direction: column;
+                align-items: center;
+
+                &_text-content {
+                    margin-top: 25px;
+                    align-items: center;
+                    padding-left: 0;
+
+                    h2, h3 {
+                        align-self: center;
+                    }
+
+                    &_descr {
+                        align-self: stretch;
+
+                        img {
+                            padding: 14px;
+                        }
+                    }
+                }
+            }
         }
     }
+
+    
 }
 
 
@@ -337,5 +372,24 @@
                 }
             }
         }
+    }
+}
+
+@media (max-width: 400px) {
+    .portfolio {
+        .portfolio-container {
+            &_info {
+                &_text-content {
+                    &_username {
+                        font-size: 40px;
+                    }
+
+                    &_name {
+                        font-size: 34px;
+                    }
+                }
+            }
+        }
+
     }
 }
