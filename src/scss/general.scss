@@ -374,7 +374,7 @@ footer{
     .portfolio-container {
         height: 100%;
         position: relative;
-
+        padding: 0 50px;
         .bck-change {
             position: absolute;
             cursor: pointer;
@@ -522,10 +522,12 @@ footer{
                     overflow-y: auto;
                     font-size: 22px;
                     background-color: #fff;
-                    white-space: pre;
+                    white-space: pre-wrap;
 
                     p {
                         margin: 0;
+                        white-space: pre-wrap;
+                        overflow-wrap: break-word;
                     }
 
                     img {
@@ -543,11 +545,18 @@ footer{
                 padding: 30px 30px;
                 &_title {
                     position: relative;
-                    font-weight: 900;
-                    font-size: 38px;
-                    &::after {
-                        content: url(../icons/portfolio/text-edit-icon.png);
+                    display: inline-block;
+
+                    &_name {
+                        font-weight: 900;
+                        font-size: 38px;
+                        margin-bottom: 0;
+                    }
+
+                    &_icon {
                         position: absolute;
+                        cursor: pointer;
+                        right: -23px;
                         top: 50%;
                         transform: translateY(-50%);
                     }
