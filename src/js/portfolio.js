@@ -15,14 +15,14 @@ function rgbToHex(rgb) {
 }
 
 
-function changeNamesFocus() {
+function changeNamesFocus(targetText, maxlength = 30) {
     let input = document.createElement("input");
-    let nameValue = NameText.textContent;
+    let nameValue = targetText.textContent;
     input.type = "text";
     input.className = "changing-text";
-    input.setAttribute("maxlength", "30");
+    input.setAttribute("maxlength", maxlength);
 
-    NameText.replaceWith(input);
+    targetText.replaceWith(input);
     input.value = nameValue;
 
     function changeNamesBlur() {
@@ -30,8 +30,8 @@ function changeNamesFocus() {
         if (!input) return;
         let inputValue = (input.value === '') ? "X" : input.value;
 
-        input.replaceWith(NameText);
-        NameText.textContent = inputValue;
+        input.replaceWith(targetText);
+        targetText.textContent = inputValue;
     }
 
     function changeNamesEnter(e) {
@@ -80,7 +80,8 @@ function changeBackgroundColor() {
 
 ChangeBackgroundColorBtn.addEventListener("click", changeBackgroundColor)
 PortfolioDescrBtn.addEventListener("click", descrChangeFocus);
-NameText.addEventListener("click", changeNamesFocus);
+NameText.addEventListener("click", () => changeNamesFocus(NameText, 30));
 
 
 
+export {changeNamesFocus};
