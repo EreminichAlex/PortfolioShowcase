@@ -147,9 +147,11 @@ input {
 }
 
 // MODAL STYLES ----------
-
-input[class="form-control"] {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.modal {
+    input, input[class="form-control"], input[class="form-control"]::placeholder, textarea, div, p, .modal-title  {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 400;
+    }
 }
 .modal-footer {
     &>button {
@@ -384,9 +386,9 @@ footer{
         
         &>.container {
             position: relative;
-            padding: 0;
             background-color: #cccccc;
             box-shadow: $main-shadow;
+            padding: 0;
         }
 
         .bck-change-color {
@@ -412,6 +414,7 @@ footer{
                 font-size: 36px;
                 &_img {
                     border: 2px solid black;
+                    border-radius: 6px;
                     background-color: #fff;                    
                 }
                 
@@ -471,12 +474,7 @@ footer{
                                 right: 10px;
                                 transform: translateY(-50%);
 
-                                transition: all 0.2s ease;
-
-                                &:hover {
-                                    background-color: #e07882;
-                                    border-radius: 50%;
-                                }
+                                @include deleteBtnHover;
                             }
                         }
 
@@ -515,6 +513,7 @@ footer{
 
                     max-width: 100%;
                     border: 1px solid #000;
+                    border-radius: 10px;
                     padding: 10px 20px;
                     margin-top: 20px;
                     min-height: 50px;
@@ -542,7 +541,18 @@ footer{
 
         .sections {
             .section {
+                position: relative;
                 padding: 30px 30px;
+
+                .delete-section {
+                    position: absolute;
+                    right: 35px;
+                    top: 40px;
+                    cursor: pointer;
+
+                    @include deleteBtnHover;
+                }
+
                 &_title {
                     position: relative;
                     display: inline-block;
@@ -569,12 +579,43 @@ footer{
                     gap: 20px;
                     min-height: 200px;
                     border: 1px solid #000;
+                    border-radius: 6px;
                     width: 100%;
+                    padding: 5px;
 
                     &_work {
+                        position: relative;
+                        height: 100%;
+                        width: 100%;
                         justify-self: center;
                         align-self: center;
+                        padding: 3px;
+
+                        box-shadow: $main-shadow;
+                        border-radius: 6px;
+
+                        &_cover {
+                            background: url(../img/portfolio/work-cover-default.jpg) center center/cover no-repeat;
+                            cursor: pointer;
+                            border-radius: 4px;
+                            height: 85%;
+                            
+                            transition: all 0.1s ease;
+
+                            &:hover {
+                                opacity: 0.9;
+                            }
+                        }
+
+                        &_name {
+                            font-size: 20px;
+                        }
+
                         &_add-work {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translateX(-50%) translateY(-50%);
                             padding: 20px;
                             cursor: pointer;
 
