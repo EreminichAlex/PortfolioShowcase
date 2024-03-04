@@ -22,6 +22,8 @@
 <body>
     <div class="wrapper">
 
+    <!-- ---------------- MODAL SECTION ----------------- -->
+
         <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content bg-dark-subtle">
@@ -45,8 +47,56 @@
                 </div>
               </div>
             </div>
+        </div>
+
+        <!-- DELETE ATTENTION -->
+
+        <div class="modal fade" id="deleteSectionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Удалить секцию</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Вы действительно хотите полностью удалить эту секцию?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                  <button id="acceptDeleteSection" type="button" class="btn btn-primary">Удалить</button>
+                </div>
+              </div>
+            </div>
           </div>
+
+        <!-- modal for adding works -->
+
+        <div class="modal fade" id="addingWorkModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Добавить работу</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#" name="workForm">
+                            <input name="formName" class="form-control" type="text" placeholder="Название">
+                            <input name="formFiles" class="form-control mt-3" type="file" id="formFileMultiple" multiple>
+                            <input class="form-control mt-3" type="url" placeholder="Ссылка">
+                            <div id="workFormURL" class="form-text">Ссылка на работу (необязательно)</div>
+                            <textarea name="formName" class="form-control mt-3" name="work-descr" id="work-descr" placeholder="Напишите описание"></textarea>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary">Добавить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         
+        <!-- ------------------------------------------------------------ -->
+
 
         <header>
             <div class="container">
@@ -127,6 +177,23 @@
                             </div>
                         </div> -->
                         
+                        <div class="section">
+                            <div class="section_title">
+                                <h2 class="section_title_name">Секция 1</h2>
+                                <img src="../icons/portfolio/text-edit-icon.png" class="section_title_icon" alt="Изменить название" title="Изменить название">
+                            </div>
+                            <div class="section_block">
+                                <div class="section_block_work">
+                                    <div class="section_block_work_cover"></div>
+                                    <div class="section_block_work_name">НАЗВАНИЕ</div>
+                                </div>
+                                <div class="section_block_work">
+                                    <div class="section_block_work_add-work">
+                                        <img data-bs-toggle="modal" data-bs-target="#addingWorkModal" src="../icons/portfolio/add-work-icon.png" alt="добавить работу">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="add-section">
