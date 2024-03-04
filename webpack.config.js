@@ -3,6 +3,7 @@ const config = {
     entry: {
         contactsEditing: './src/js/contacts-editing.js',
         portfolio: './src/js/portfolio.js',
+        portfolio: './src/js/sections.js',
     },
     output: {
         filename: '[name].bundle.js',
