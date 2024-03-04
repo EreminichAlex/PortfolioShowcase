@@ -38,7 +38,7 @@ function addNewContact() {
     
     let contactTemplate = `<div class="portfolio-container_info_image_contacts_collapse-block_contact">
     <a class="contact-name" href="${url}" target="_blank">${name}</a>
-    <img src="../icons/portfolio/delete-contact-icon.svg" class="delete-contact">
+    <img src="../icons/portfolio/delete-icon.svg" class="delete-contact">
     </div>`
     contact.innerHTML = contactTemplate;
     AddContactBtn.parentElement.before(contact);
