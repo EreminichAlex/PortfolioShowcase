@@ -17,7 +17,7 @@
         <script src="./../bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
         <script src="./../bootstrap-5.3.2-dist/js/bootstrap.esm.min.js"></script>
         <script src="./../bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
-        <title>Portfolio showcase registration</title>
+        <title>Портфолио</title>
     </head>
 <body>
     <div class="wrapper">
@@ -80,8 +80,9 @@
                     </div>
                     <div class="modal-body">
                         <form action="#" name="workForm">
-                            <input name="formName" class="form-control" type="text" placeholder="Название">
-                            <input name="formFiles" class="form-control mt-3" type="file" id="formFileMultiple" multiple>
+                            <input name="formWorkName" class="form-control" type="text" placeholder="Название" maxlength="160" required>
+                            <input name="formFiles" class="form-control mt-3" type="file" id="formFileMultiple" multiple required>
+                            <div id="workFormURL" class="form-text">Первое загруженное изображение установится на обложку карточки</div>
                             <input class="form-control mt-3" type="url" placeholder="Ссылка">
                             <div id="workFormURL" class="form-text">Ссылка на работу (необязательно)</div>
                             <textarea name="formName" class="form-control mt-3" name="work-descr" id="work-descr" placeholder="Напишите описание"></textarea>
@@ -89,11 +90,13 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                    <button type="button" class="btn btn-primary">Добавить</button>
+                    <button type="button" id="acceptWorkAdding" class="btn btn-primary">Добавить</button>
                     </div>
                 </div>
             </div>
         </div>
+
+        
         
         <!-- ------------------------------------------------------------ -->
 
@@ -113,7 +116,7 @@
                                 </a>
                               
                                 <ol class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="#">Профиль</a></li>
+                                  <li><a class="dropdown-item" href="./profile.html">Профиль</a></li>
                                   <li><a class="dropdown-item" href="./portfolio.html">Портфолио</a></li>
                                   <li><a class="dropdown-item" href="#">Выйти</a></li>
                                 </ol>
@@ -184,7 +187,7 @@
                             </div>
                             <div class="section_block">
                                 <div class="section_block_work">
-                                    <div class="section_block_work_cover"></div>
+                                    <div class="section_block_work_cover"><img src="../img/portfolio/work-cover-default.jpg" alt="Обложка карточки"></div>
                                     <div class="section_block_work_name">НАЗВАНИЕ</div>
                                 </div>
                                 <div class="section_block_work">
