@@ -62,7 +62,6 @@ function descrChangeFocus() {
     PortfolioDescrBtn.hidden = true;
     textarea.focus();
 }
-console.log(ColorInput.closest(".container").style.backgroundColor)
 
 function changeBackgroundColor() {
     ColorInput.hidden = false;
@@ -78,9 +77,44 @@ function changeBackgroundColor() {
     })
 }
 
+// ЗАКИНУТЬ ЭТУ ФУНКЦИЮ И ДОБАВЛЕНИЕ ОБРАБОТЧИКА В ФУНКЦИЮ СОЗДАНИЯ КАРТОЧЕК РАБОТ
+function showAllTextWorkCard(e) {
+    if (!e.target.closest('.section_block_work')) return;
+    if (e.target.closest('.section_block_work').querySelector('.section_block_work_add-work')) return;
+
+
+    let currentBlock = e.target.closest('.section_block_work');
+    let blockCover = currentBlock.querySelector('.section_block_work_cover');
+    let blockText = currentBlock.querySelector('.section_block_work_name');
+
+    currentBlock.style.overflow = 'visible'
+
+    blockCover.style.opacity = '0.1';
+    
+    blockText.style.position = 'absolute';
+    blockText.style.top = 10 + "px";
+    blockText.style.left = 10 + "px";
+    blockText.style.right = 10 + "px";
+
+    currentBlock.addEventListener('mouseout', ()=> {
+    blockText.style.position = 'static';
+    blockText.style.top = null;
+    blockText.style.left = null;
+    blockText.style.right = null;
+    currentBlock.style.overflow = 'hidden'
+    blockCover.style.opacity = null;
+    })
+}
+
+
 ChangeBackgroundColorBtn.addEventListener("click", changeBackgroundColor)
 PortfolioDescrBtn.addEventListener("click", descrChangeFocus);
 NameText.addEventListener("click", () => changeNamesFocus(NameText, 30));
+
+let sectionBlocks = document.querySelectorAll('.section_block');
+sectionBlocks.forEach((element) => {
+    element.addEventListener('mouseover', showAllTextWorkCard);
+})
 
 
 
