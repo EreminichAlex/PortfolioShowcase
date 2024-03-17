@@ -573,6 +573,7 @@ footer{
                 }
 
                 &_block {
+                    position: relative;
                     display: grid;
                     grid-template-columns: repeat(5, 1fr);
                     grid-auto-rows: 250px;
@@ -590,25 +591,45 @@ footer{
                         justify-self: center;
                         align-self: center;
                         padding: 3px;
+                        word-break: break-all;
+                        overflow: hidden;
 
                         box-shadow: $main-shadow;
                         border-radius: 6px;
 
+                        transition: all 0.2s ease;
+
+                        &:hover {
+                            opacity: 0.9;
+                            cursor: pointer;
+
+                            overflow: visible;
+
+                        }
+
                         &_cover {
-                            background: url(../img/portfolio/work-cover-default.jpg) center center/cover no-repeat;
                             cursor: pointer;
                             border-radius: 4px;
                             height: 85%;
-                            
-                            transition: all 0.1s ease;
+                            transition: all 0.2s ease;
 
-                            &:hover {
-                                opacity: 0.9;
+                            img {
+                                background-position: center;
+                                object-fit: cover;
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                height: 100%;
+                                width: 100%;
                             }
+                        
+                            // &:hover {
+                            //     opacity: 0.2;
+                            // }
                         }
 
                         &_name {
                             font-size: 20px;
+                            transition: all 0.2s ease;
                         }
 
                         &_add-work {
@@ -649,3 +670,54 @@ footer{
     }
 }
 
+// PROFILE SECTION
+
+.main {
+    min-height: 100%;
+    .profile-container {
+        min-height: 100%;
+        .container {
+            background-color: $portfolio-main-background;
+
+            .profile-container_info {
+                display: flex;
+                justify-content: space-between;
+                padding: 20px 20px 40px 20px;
+                &_image {
+                    max-width: 170px;
+                    font-size: 36px;
+                    &_img {
+                        border: 2px solid black;
+                        border-radius: 6px;
+                        background-color: #fff;   
+                    }
+                }
+
+                &_text-content {
+                    display: flex;
+                    flex-direction: column;
+                    &_username {
+                        font-size: 58px;
+                        font-weight: 900;
+                        margin: 0;
+                        align-self: flex-end;
+                    }
+    
+                    &_email {
+                        position: relative;
+                        margin: 0;
+                        font-size: 40px;
+                        align-self: flex-end;
+                        margin-top: 10px;
+
+                        &::before {
+                            content: url(../icons/social-icons/email-icon.png);
+                            position: absolute;
+                            left: -40px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
