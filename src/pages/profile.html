@@ -21,6 +21,30 @@
     <title>Профиль</title>
 </head>
 <body>
+<!-- MODAL FOR ADDING PORTFOLIOS -->
+<div class="modal fade" id="addingPortfolioModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Создать новое портфолио</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="#" name="portfolioForm">
+                <input name="formPortfolioName" class="form-control" type="text" placeholder="Название портфолио" maxlength="50" required>
+                <input name="formPortfolioUserName" class="form-control mt-3" type="text" placeholder="Имя и Фамилия" maxlength="50">
+                <textarea name="formPortfolioDescr" class="form-control mt-3" name="work-descr" id="work-descr" placeholder="Напишите описание для портфолио" maxlength="300"></textarea>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+          <button type="button" id="acceptPortfolioAdding" class="btn btn-primary">Создать</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- ------------------------------------------------------ -->
+
     <div class="wrapper">
 
         <header>
@@ -58,12 +82,26 @@
                         </div>
 
                         <div class="profile-container_info_text-content">
-                            <h2 class="profile-container_info_text-content_username">Username</h2>
+                            <h2 class="profile-container_info_text-content_username">Nickname</h2>
                             <h3 class="profile-container_info_text-content_email">Эл. Почта</h3>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section_title">
+                            <h2 class="section_title_name">Портфолио</h2>
+                        </div>
+                        <div class="section_block">
+                            <div class="section_block_work">
+                                <div class="section_block_work_add-work">
+                                    <img data-bs-toggle="modal" data-bs-target="#addingPortfolioModal" src="../icons/portfolio/add-work-icon.png" alt="добавить работу">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </main>
     </div>
 
@@ -77,5 +115,6 @@
             </div>
         </div>
     </footer>
+    <script src="../js-testing/main.js"></script>
 </body>
 </html>
