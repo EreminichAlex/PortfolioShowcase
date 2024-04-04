@@ -4,6 +4,7 @@ const config = {
         contactsEditing: './src/js/contacts-editing.js',
         portfolio: './src/js/portfolio.js',
         portfolio: './src/js/sections.js',
+        profile: './src/js/profile.js'
     },
     output: {
         filename: '[name].bundle.js',
