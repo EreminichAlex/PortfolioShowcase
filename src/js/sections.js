@@ -78,12 +78,14 @@ function createWorkCardTemplate() {
     return card;
 }
 
-modal.addEventListener('shown.bs.modal', (e) => {
-    const AcceptDeleteBtn = document.getElementById('acceptDeleteSection');
-    let sectionCur = e.relatedTarget.closest(".section");
-    if (!sectionCur) return;
-    AcceptDeleteBtn.addEventListener('click', () => {
-        sectionCur.remove();
+try {
+
+    modal.addEventListener('shown.bs.modal', (e) => {
+        const AcceptDeleteBtn = document.getElementById('acceptDeleteSection');
+        let sectionCur = e.relatedTarget.closest(".section");
+        if (!sectionCur) return;
+        AcceptDeleteBtn.addEventListener('click', () => {
+            sectionCur.remove();
     });
 })
 
@@ -94,6 +96,8 @@ modalAddWork.addEventListener("shown.bs.modal", (e) => {
     if (activeAddWorkModal) return;
     activeAddWorkModal = true;
     let targetBlock = e.relatedTarget.closest(".section_block_work");
-    console.log("окно появилось")
     document.getElementById("acceptWorkAdding").addEventListener("click", () => addWorkCard(e, targetBlock))
 })
+} catch(err) {
+    
+}
