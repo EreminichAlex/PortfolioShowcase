@@ -1,8 +1,12 @@
 const NameText = document.querySelector('.portfolio-container_info_text-content_name');
-const PortfolioDescrText = document.querySelector('.portfolio-container_info_text-content_descr').firstElementChild;
-const PortfolioDescrBtn = PortfolioDescrText.nextElementSibling;
 const ChangeBackgroundColorBtn = document.querySelector(".bck-change-color");
 const ColorInput = document.getElementById("colorInputBackground");
+try {
+    const PortfolioDescrText = document.querySelector('.portfolio-container_info_text-content_descr').firstElementChild;
+    const PortfolioDescrBtn = PortfolioDescrText.nextElementSibling;
+}catch(err) {
+
+}
 
 function rgbToHex(rgb) {
     const nums = rgb.match(/\b\d{1,3}\b/g);
@@ -106,15 +110,23 @@ function showAllTextWorkCard(e) {
     })
 }
 
+try {
 
-ChangeBackgroundColorBtn.addEventListener("click", changeBackgroundColor)
-PortfolioDescrBtn.addEventListener("click", descrChangeFocus);
-NameText.addEventListener("click", () => changeNamesFocus(NameText, 30));
-
+    ChangeBackgroundColorBtn.addEventListener("click", changeBackgroundColor)
+    PortfolioDescrBtn.addEventListener("click", descrChangeFocus);
+    NameText.addEventListener("click", () => changeNamesFocus(NameText, 30));
+    
 let sectionBlocks = document.querySelectorAll('.section_block');
 sectionBlocks.forEach((element) => {
     element.addEventListener('mouseover', showAllTextWorkCard);
 })
+} catch(err) {
+    
+}
+
+// function changeBackground() {
+    
+// }
 
 
 
