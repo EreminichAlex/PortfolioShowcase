@@ -87,6 +87,17 @@
             }
         }
     }
+    .main {
+        .profile-container {
+            .container {
+                .section {
+                    &_block {
+                        grid-template-columns: repeat(3,1fr);
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 992px) {
@@ -253,8 +264,17 @@
             }
         }
     }
-
-    
+    .main {
+        .profile-container {
+            .container {
+                .section {
+                    &_block {
+                        grid-template-columns: repeat(2,1fr);
+                    }
+                }
+            }
+        }
+    }
 }
 
 
@@ -368,6 +388,17 @@
                 .section {
                     &_block {
                         grid-template-columns: repeat(1, 1fr);
+                    }
+                }
+            }
+        }
+    }
+    .main {
+        .profile-container {
+            .container {
+                .section {
+                    &_block {
+                        grid-template-columns: repeat(1,1fr);
                     }
                 }
             }
