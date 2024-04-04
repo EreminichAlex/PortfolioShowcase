@@ -45,9 +45,13 @@ function addNewContact() {
 
     contact.querySelector(".delete-contact").addEventListener("click", (e) => {deleteParentElement(e)})
 }
-Modal.addEventListener('shown.bs.modal', () => {
+try {
+
+  Modal.addEventListener('shown.bs.modal', () => {
     const AcceptContactBtn = document.getElementById('acceptContact');
     AcceptContactBtn.addEventListener('click', addNewContact);
-})
-
-ContactsCollapseBtn.addEventListener("click", collapseContacts);
+  })
+  
+  ContactsCollapseBtn.addEventListener("click", collapseContacts);
+} catch(err) {
+}
