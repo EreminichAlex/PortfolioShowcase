@@ -1,10 +1,13 @@
 const config = {
     mode: 'development',
     entry: {
-        contactsEditing: './src/js/contacts-editing.js',
         portfolio: './src/js/portfolio.js',
         portfolio: './src/js/sections.js',
-        profile: './src/js/profile.js'
+        contacts: './src/js/contacts-editing.js',
+        profile: './src/js/profile.js',
+        index: './src/js/start-page.js',
+        registration: './src/js/registration-form.js',
+        login: './src/js/login-form.js'
     },
     output: {
         filename: '[name].bundle.js',
@@ -18,3 +21,4 @@ const config = {
         ],
     },
 };
+module.exports = config;

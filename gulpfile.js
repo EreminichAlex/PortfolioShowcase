@@ -59,7 +59,7 @@ gulp.task('js', function() {
     return gulp.src('./src/js/*.js')
     .pipe(plumber(plumberNotify("JS")))
     .pipe(webpack(require('./webpack.config.js')))
-    .pipe(gulp.dest('./dist/js'));
+    .pipe(gulp.dest('./dist/js-testing'));
 })
 
 gulp.task('bootstrap', function() {
@@ -87,9 +87,8 @@ gulp.task('watch', function() {
 gulp.task('default', gulp.series(
     'clean', 
     gulp.parallel('htmlIndex', 'htmlPages', 'css', 'copyImages', 'copyIcons', 'fonts', 'js', 'bootstrap'), 
-    gulp.parallel('startServer', 'watch')
+    gulp.parallel('watch')
 ))
-
 
 
 gulp.task('jsTest', function() {

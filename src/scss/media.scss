@@ -101,12 +101,60 @@
 }
 
 @media (max-width: 992px) {
-    header {
-        .row {
-            .header_nav {
+// HAMBURGER 
+.hamburger {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    width: 80px;
+    height: auto;
+    z-index: 999;
+    right: 0;
+    span {
+        display: block;
+        height: 6px;
+        width: 100%;
+        background-color: $text-color-base;
+        transition: 0.5s all;
+    }
+    span + span {
+        margin-top: 8px;
+    }
+    &_active {
+        span {
+            &:nth-child(2) {
+                transform: rotate(-45deg);
+            }
+            &:nth-child(1) {
                 display: none;
             }
+            &:nth-child(3) {
+                transform: rotate(45deg);
+            }
         }
+        span + span {
+            margin-top: -6px;
+        }
+    }
+}
+// ----------
+
+    header {
+        .container {
+
+            .row {
+                .header_nav {
+                    display: none;
+                }
+            }
+
+        }
+        .header_logo {
+            a {
+                text-align: center;
+            }
+        }
+
     }
 
     .subheader-starting {
@@ -189,6 +237,11 @@
 }
 
 @media (max-width: 768px) {
+    .hamburger {
+        width: 70px;
+        right: -20px;
+    }
+
     .subheader-starting {
         &_row {
             padding: 0;
@@ -279,6 +332,11 @@
 
 
 @media (max-width: 576px) {
+    .hamburger {
+        width: 70px;
+        right: 0;
+    }
+
     header {
         .row {
             .header_logo {
@@ -399,6 +457,22 @@
                 .section {
                     &_block {
                         grid-template-columns: repeat(1,1fr);
+                    }
+                }
+            }
+            &_info {
+                flex-direction: column;
+                align-items: center;
+                &_text-content > * {
+                    text-align: center;
+                    word-break: break-all;
+                }
+                &_text-content {
+                    &_username {
+                        align-self: center;
+                    }
+                    &_email {
+                        align-self: center;
                     }
                 }
             }
