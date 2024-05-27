@@ -10,7 +10,6 @@ import {changeNamesFocus,descrChangeFocus} from "./portfolio.js";
 
 const match = window.location.href.match(/\/portfolio\/(\d+)/);
 const portfolioId = match ? match[1] : null;
-
 function addSection() {
     let numOfNewSection = sectionsBlock.querySelectorAll(".section").length + 1;
     if (numOfNewSection > 10) {
@@ -116,7 +115,7 @@ function makeFilename(length) {
 function getFileExtension(fileName) {
     const parts = fileName.split('.');
     return parts[parts.length - 1];
-  }
+}
 
 const form = document.forms.workForm;
 form.formWorkName.addEventListener("input", (e)=> {
@@ -146,6 +145,8 @@ form.formFiles.addEventListener("input", (e)=> {
         select.removeAttribute("disabled")
     }
 })
+
+try {
 form.selectExistCard.addEventListener("input", (e)=> {
     let workName = form.formWorkName;
     let fileInput = form.formFiles;
@@ -164,6 +165,10 @@ form.selectExistCard.addEventListener("input", (e)=> {
         workDescription.removeAttribute("disabled")
     }
 })
+} catch (err) {
+
+}
+
 
 async function changeWorkSection(workId, newSection) {
     const formData = {
@@ -192,6 +197,7 @@ async function changeWorkSection(workId, newSection) {
 }
 
 async function addWorkCard(e, targetBlock) {
+    const currentSection = e.relatedTarget.closest(".section").querySelector(".section_title_name").textContent;
     let form = document.forms.workForm;
     let workName = form.formWorkName.value;
     let fileInput = form.formFiles;
@@ -200,7 +206,6 @@ async function addWorkCard(e, targetBlock) {
     let select = form.selectExistCard;
 
     let file = fileInput.files[0];
-
     if (Number.isInteger(+select.value)) {
         changeWorkSection(+select.value, e.relatedTarget.closest(".section").dataset.sectionId)
         return;
@@ -219,6 +224,7 @@ async function addWorkCard(e, targetBlock) {
         return;
     }
 
+
     let card = createWorkCardTemplate();
     card.querySelector(".section_block_work_name").textContent = workName;
     let imageCover = card.querySelector(".section_block_work_cover").firstElementChild;
@@ -227,18 +233,22 @@ async function addWorkCard(e, targetBlock) {
     reader.onload = function(e) {
         imageCover.setAttribute('src', e.target.result)
     }
-    reader.readAsDataURL(file);
-    const currentSection = e.relatedTarget.closest(".section").querySelector(".section_title_name").textContent;
-    const newFilename = makeFilename(10) +`.${getFileExtension(file.name)}`;
-    const resFile = new File([file], newFilename, {type: file.type})
 
-
+    let resFile
+    let newFilename = null;
+    if (file) {
+        reader.readAsDataURL(file);
+        newFilename = makeFilename(10) +`.${getFileExtension(file.name)}`;
+        resFile = new File([file], newFilename, {type: file.type})
+    } 
+    (newFilename === null) ? null : `/${newFilename}` 
+    
     const formData = new FormData();
     formData.append('file', resFile);
     formData.append('workName', workName);
     formData.append('workLink', workLink);
     formData.append('workDescription', workDescription);
-    formData.append('workPath', `/${newFilename}`);
+    formData.append('workPath', newFilename);
     formData.append('sectionName', currentSection);
 
     try {
@@ -390,17 +400,27 @@ allWorks.forEach((card)=> {
         let file = e.target.files[0];
         let reader = new FileReader();
         reader.readAsDataURL(file);
-        const previousFileName = e.target.previousElementSibling.src.match(/\/([^\/]+)\.[^\/\.]+/)[1];
-        const previousFile = "/"+e.target.previousElementSibling.src.match(/\/([^\/]+)(\.[^\/\.]+)$/)[1] + e.target.previousElementSibling.src.match(/\/([^\/]+)(\.[^\/\.]+)$/)[2];
-        const newFilename = makeFilename(10) +`.${getFileExtension(file.name)}`;
-        const resFile = new File([file], newFilename, {type: file.type});
+        let previousFileName
+        let previousFile
+        let newFilename
+        let resFile
+        if (e.target.previousElementSibling.querySelector(".modal-body_img-work_download-file") === null) {
+            previousFileName = e.target.previousElementSibling.src.match(/\/([^\/]+)\.[^\/\.]+/)[1];
+            previousFile = "/"+e.target.previousElementSibling.src.match(/\/([^\/]+)(\.[^\/\.]+)$/)[1] + e.target.previousElementSibling.src.match(/\/([^\/]+)(\.[^\/\.]+)$/)[2];
+            newFilename = makeFilename(10) +`.${getFileExtension(file.name)}`;
+            resFile = new File([file], newFilename, {type: file.type});
+        } else {
+            previousFileName = e.target.previousElementSibling.action.match(/\/([^\/]+)\.[^\/\.]+/)[1];
+            previousFile = "/"+e.target.previousElementSibling.action.match(/\/([^\/]+)(\.[^\/\.]+)$/)[1] + e.target.previousElementSibling.action.match(/\/([^\/]+)(\.[^\/\.]+)$/)[2];
+            newFilename = makeFilename(10) +`.${getFileExtension(file.name)}`;
+            resFile = new File([file], newFilename, {type: file.type});
+        }
 
         const formData = new FormData();
         formData.append('file', resFile);
-        formData.append('workPath', `/${newFilename}`);
+        formData.append('workPath', newFilename);
         formData.append('workId', card.dataset.workId);
         formData.append('portfolioId', portfolioId);
-        console.log(previousFileName)
         formData.append('previousFileName', previousFileName);
         formData.append('previousFile', previousFile);
 
@@ -511,3 +531,5 @@ cancelWorkAdding.addEventListener("click", ()=> {
     form.selectExistCard.removeAttribute("disabled");
     form.reset();
 })
+
+export {makeFilename, getFileExtension}

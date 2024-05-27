@@ -38,6 +38,13 @@ img {
     }
 }
 
+// main {
+//     z-index: -1;
+// }
+// .background-img-wrapper {
+//     z-index: 1;
+// }
+
 .logout-form {
     text-align: center;
     padding: 20px 0;
@@ -75,6 +82,23 @@ img {
 
         &_img-work {
             position: relative;
+
+            &_text-file-content {
+                white-space: pre;
+                max-height: 350px;
+                overflow-y: auto;
+                border: 1px solid #e7e7e7;
+                padding: 10px 20px;
+                border-radius: 4px;
+            }
+
+            &_download-file {
+                border: 1px solid black;
+                border-radius: 2px;
+                font-weight: 400;
+                font-size: 16px;
+            }
+
             img:first-child {
                 border-radius: 6px;
                 box-shadow: 0px 4px 26px -11px rgba(0,0,0,0.68);
@@ -148,7 +172,6 @@ img {
         text-decoration: none;
     }
 }
-
 // ------
 
 header {
@@ -502,6 +525,17 @@ footer{
 .portfolio {
     background-color: #fff;
     padding-bottom: 170px;
+    // position: relative;
+
+    #mainBackgroundImage {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        object-position: center;
+        top: 0;
+        left: 0;
+    }
 
     .portfolio-container {
         height: 100%;
@@ -683,6 +717,10 @@ footer{
                         right: 5px;
                         top: 5px;
                     }
+                    textarea {
+                        border: 0;
+                        outline: 0;
+                    }
                 }
             }
         }
@@ -774,6 +812,18 @@ footer{
                                 background-repeat: no-repeat;
                                 height: 100%;
                                 width: 100%;
+
+                                &::before {
+                                    content: url(../icons/social-icons/document-icon.png);
+                                    display: block;
+                                    position: absolute;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                }
+
+                                *:not([src]) {
+                                    width: 10px;
+                                }
                             }
                         
                             // &:hover {
@@ -840,12 +890,23 @@ footer{
                 padding: 20px 20px 40px 20px;
                 &_image {
                     max-width: 170px;
+                    max-height: 180px;
                     font-size: 36px;
-                    &_img {
-                        border: 2px solid black;
-                        border-radius: 6px;
-                        background-color: #fff;   
+                    border: 2px solid black;
+                    border-radius: 6px;
+                    background-color: #fff;   
+                    overflow: hidden;
+                    
+                    &>label {
+                        cursor: pointer;
                     }
+                    // #changeAvatarFileLabel {
+                    //     background-image: url(../icons/portfolio/user-icon.png);
+                    //     background-position: center center;
+                    //     object-fit: contain;
+                    //     width: 160px;
+                    //     height: 100%;
+                    // }
                 }
 
                 &_text-content {

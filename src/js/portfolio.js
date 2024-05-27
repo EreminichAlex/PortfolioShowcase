@@ -1,3 +1,5 @@
+import {makeFilename, getFileExtension} from "./sections.js"
+
 const NameText = document.querySelector('.portfolio-container_info_text-content_name');
 const NameTextBtnChange = document.querySelector('.portfolio-container_info_text-content_name_img-change');
 const ChangeBackgroundColorBtn = document.querySelector(".bck-change-color");
@@ -126,8 +128,6 @@ function descrChangeBlur(e) {
 
 function descrChangeFocus(e,target, blurF) {
     let textarea = document.createElement("textarea");
-    console.log(e.target)
-    console.log(target)
     target.replaceWith(textarea);
     textarea.value = target.textContent;
     textarea.className = "changing-descr";
@@ -216,8 +216,59 @@ let sectionBlocks = document.querySelectorAll('.section_block');
 sectionBlocks.forEach((element) => {
 element.addEventListener('mouseover', showAllTextWorkCard);
 })
-// }
+
+try {
+
+    document.querySelector(".modal-body_img-work_download-file").addEventListener("click", (e)=> {
+        e.preventDefault()
+    })
+} catch (err) {
+    
+}
+
+let changePortfolioBackground = document.getElementById(`backgroundImgFile${portfolioId}`);
+changePortfolioBackground.addEventListener("change", async (e) => {
+    let file = e.target.files[0];
+    let previousFileName;
+    let previousFile;
+    const main = document.querySelector("main")
+    const mainStyles = getComputedStyle(main);
+    const backgroundUrl = mainStyles.backgroundImage; 
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    try {
+        previousFileName = backgroundUrl.match(/\/([^\/]+)\.[^\/\.]+/)[1]
+        previousFile = backgroundUrl.match(/\/([^\/]+)(\.[^\/\.]+)$/)[1] + backgroundUrl.match(/\/([^\/]+)(\.[^\/\.]+)$/)[2].split('"')[0]
+    } catch (err) {
+
+    }
+    const newFilename = makeFilename(10) +`.${getFileExtension(file.name)}`;
+    const resFile = new File([file], newFilename, {type: file.type});
 
 
+
+    const formData = new FormData();
+    formData.append('file', resFile);
+    formData.append('workPath', newFilename);
+    formData.append('portfolioId', portfolioId);
+    formData.append('previousFileName', previousFileName);
+    formData.append('previousFile', previousFile);
+
+    try {
+        const response = await fetch(`/portfolio/${portfolioId}/change-portfolio-background`, {
+        method: "PUT",
+        body: formData,
+
+    })
+    if (response.ok) {
+        console.log("Успех");
+    }
+        
+    } catch(err) {
+        console.log(err)
+    }
+    location.reload()
+})
 
 export {changeNamesFocus,descrChangeFocus};

@@ -94,6 +94,20 @@ img {
 .modal .modal-body_img-work {
   position: relative;
 }
+.modal .modal-body_img-work_text-file-content {
+  white-space: pre;
+  max-height: 350px;
+  overflow-y: auto;
+  border: 1px solid #e7e7e7;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+.modal .modal-body_img-work_download-file {
+  border: 1px solid black;
+  border-radius: 2px;
+  font-weight: 400;
+  font-size: 16px;
+}
 .modal .modal-body_img-work img:first-child {
   border-radius: 6px;
   -webkit-box-shadow: 0px 4px 26px -11px rgba(0, 0, 0, 0.68);
@@ -561,6 +575,17 @@ footer .footer-row a::before {
   background-color: #fff;
   padding-bottom: 170px;
 }
+.portfolio #mainBackgroundImage {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  top: 0;
+  left: 0;
+}
 .portfolio .portfolio-container {
   height: 100%;
   position: relative;
@@ -750,6 +775,10 @@ footer .footer-row a::before {
   right: 5px;
   top: 5px;
 }
+.portfolio .portfolio-container_info_text-content_descr textarea {
+  border: 0;
+  outline: 0;
+}
 .portfolio .portfolio-container .sections .section {
   position: relative;
   padding: 30px 30px;
@@ -847,6 +876,17 @@ footer .footer-row a::before {
   height: 100%;
   width: 100%;
 }
+.portfolio .portfolio-container .sections .section_block_work_cover img::before {
+  content: url(../icons/social-icons/document-icon.png);
+  display: block;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.portfolio .portfolio-container .sections .section_block_work_cover img *:not([src]) {
+  width: 10px;
+}
 .portfolio .portfolio-container .sections .section_block_work_name {
   font-size: 20px;
   -webkit-transition: all 0.2s ease;
@@ -914,12 +954,15 @@ footer .footer-row a::before {
 }
 .main .profile-container .container .profile-container_info_image {
   max-width: 170px;
+  max-height: 180px;
   font-size: 36px;
-}
-.main .profile-container .container .profile-container_info_image_img {
   border: 2px solid black;
   border-radius: 6px;
   background-color: #fff;
+  overflow: hidden;
+}
+.main .profile-container .container .profile-container_info_image > label {
+  cursor: pointer;
 }
 .main .profile-container .container .profile-container_info_text-content {
   display: -webkit-box;
